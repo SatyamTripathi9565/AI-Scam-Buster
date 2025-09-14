@@ -20,8 +20,8 @@ db = SQLAlchemy(app)
 # --- मॉडल और वोकैब्युलरी लोड करें ---
 
 # अपनी मॉडल फ़ाइल का सही पाथ दें
-model = load_model('model/url_cnn_lstm.h5') 
-with open('model/char_vocab.json', 'r') as f:
+model = load_model('url_cnn_lstm.h5') 
+with open('char_vocab.json', 'r') as f:
     char_to_int = json.load(f)
 
 print("✅ मॉडल और वोकैब्युलरी सफलतापूर्वक लोड हो गए।")
@@ -90,4 +90,5 @@ def predict():
 if __name__ == '__main__':
     with app.app_context():
         db.create_all()  # ऐप शुरू होने पर डेटाबेस टेबल बनाएं
+
     app.run(debug=True)
